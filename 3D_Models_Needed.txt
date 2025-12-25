@@ -1,0 +1,58 @@
+MODELOS 3D NECESARIOS - 10 JUGADORES TOTAL
+
+EQUIPO NANKATSU (5 modelos):
+1. Tsubasa_Ozora.fbx
+   - Uniforme azul y blanco
+   - Cabello castaño spiky
+   - Número 10
+
+2. Genzo_Wakabayashi.fbx
+   - Uniforme de portero verde
+   - Guantes grandes
+   - Número 1
+
+3. Taro_Misaki.fbx
+   - Uniforme azul y blanco
+   - Cabello rubio
+   - Número 11
+
+4. Ryo_Ishizaki.fbx
+   - Uniforme azul y blanco
+   - Cabello negro corto
+   - Número 2
+
+5. Kojiro_Hyuga_Nankatsu.fbx
+   - Uniforme azul y blanco (versión préstamo)
+   - Cabello negro largo
+   - Número 9
+
+EQUIPO TOHO (5 modelos):
+1. Kojiro_Hyuga_Toho.fbx
+   - Uniforme rojo y negro
+   - Cabello negro largo
+   - Número 9 (capitán)
+
+2. Ken_Wakashimazu.fbx
+   - Uniforme de portero negro
+   - Guantes
+   - Número 1
+
+3. Hikaru_Matsuyama.fbx
+   - Uniforme rojo y negro
+   - Cabello castaño
+   - Número 5
+
+4. Jun_Misugi.fbx
+   - Uniforme rojo y negro
+   - Cabello rubio
+   - Número 6
+
+5. Shun_Nitta.fbx
+   - Uniforme rojo y negro
+   - Cabello negro
+   - Número 11
+
+MODELOS COMUNES:
+- Soccer_Ball.fbx
+- Goal_Post.fbx (x2)
+- Field_5vs5.fbx

@@ -1,0 +1,208 @@
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain Tsubasa 5vs5 - Prototipo Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-futbol"></i> CAPTAIN TSUBASA 5vs5
+            </h1>
+            <p class="subtitle">Prototipo Web - Nankatsu vs Toho</p>
+        </header>
+
+        <!-- MENÚ PRINCIPAL -->
+        <main class="main-content">
+            <div class="menu-card" id="main-menu">
+                <h2><i class="fas fa-list"></i> MENÚ PRINCIPAL</h2>
+                
+                <div class="menu-options">
+                    <button class="menu-btn" onclick="showScreen('teams')">
+                        <i class="fas fa-users"></i> VER EQUIPOS
+                    </button>
+                    
+                    <button class="menu-btn" onclick="showScreen('match')">
+                        <i class="fas fa-play-circle"></i> JUGAR PARTIDO
+                    </button>
+                    
+                    <button class="menu-btn" onclick="showScreen('training')">
+                        <i class="fas fa-running"></i> ENTRENAMIENTO
+                    </button>
+                    
+                    <button class="menu-btn" onclick="showScreen('skills')">
+                        <i class="fas fa-star"></i> HABILIDADES ESPECIALES
+                    </button>
+                    
+                    <button class="menu-btn" onclick="showScreen('stats')">
+                        <i class="fas fa-chart-bar"></i> ESTADÍSTICAS
+                    </button>
+                </div>
+                
+                <div class="game-info">
+                    <p><i class="fas fa-mobile-alt"></i> Diseñado para móvil</p>
+                    <p><i class="fas fa-code"></i> Desarrollado con HTML/CSS/JS</p>
+                </div>
+            </div>
+
+            <!-- PANTALLA DE EQUIPOS -->
+            <div class="screen-card" id="teams-screen" style="display: none;">
+                <h2><i class="fas fa-users"></i> EQUIPOS</h2>
+                
+                <div class="teams-container">
+                    <!-- EQUIPO NANKATSU -->
+                    <div class="team-card nankatsu">
+                        <h3 class="team-title">🔵 NANKATSU SC</h3>
+                        <div class="players-list" id="nankatsu-players">
+                            <!-- Jugadores cargados por JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- EQUIPO TOHO -->
+                    <div class="team-card toho">
+                        <h3 class="team-title">🔴 TOHO ACADEMY</h3>
+                        <div class="players-list" id="toho-players">
+                            <!-- Jugadores cargados por JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="back-btn" onclick="showScreen('main')">
+                    <i class="fas fa-arrow-left"></i> VOLVER AL MENÚ
+                </button>
+            </div>
+
+            <!-- PANTALLA DE PARTIDO -->
+            <div class="screen-card" id="match-screen" style="display: none;">
+                <h2><i class="fas fa-play-circle"></i> PARTIDO EN VIVO</h2>
+                
+                <div class="match-container">
+                    <!-- MARCADOR -->
+                    <div class="scoreboard">
+                        <div class="score-team nankatsu-score">
+                            <span class="team-name">NANKATSU</span>
+                            <span class="score" id="score-nankatsu">0</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="score-team toho-score">
+                            <span class="score" id="score-toho">0</span>
+                            <span class="team-name">TOHO</span>
+                        </div>
+                    </div>
+                    
+                    <!-- MINUTO -->
+                    <div class="match-time">
+                        <i class="fas fa-clock"></i> MINUTO: <span id="match-minute">0</span>'
+                    </div>
+                    
+                    <!-- CAMPO DE JUEGO -->
+                    <div class="field">
+                        <div class="goal left-goal"></div>
+                        <div class="center-circle"></div>
+                        <div class="ball" id="ball"></div>
+                        <div class="goal right-goal"></div>
+                    </div>
+                    
+                    <!-- CONTROLES -->
+                    <div class="match-controls">
+                        <button class="action-btn" onclick="matchAction('pass')">
+                            <i class="fas fa-share"></i> PASAR
+                        </button>
+                        <button class="action-btn" onclick="matchAction('shoot')">
+                            <i class="fas fa-bullseye"></i> DISPARAR
+                        </button>
+                        <button class="action-btn" onclick="matchAction('skill')">
+                            <i class="fas fa-star"></i> HABILIDAD
+                        </button>
+                        <button class="action-btn" onclick="matchAction('simulate')">
+                            <i class="fas fa-forward"></i> SIMULAR
+                        </button>
+                    </div>
+                    
+                    <!-- LOG DE ACCIONES -->
+                    <div class="action-log" id="action-log">
+                        <h4><i class="fas fa-scroll"></i> LOG DEL PARTIDO</h4>
+                        <div class="log-entries" id="log-entries">
+                            <p>Partido iniciado. ¡Buena suerte!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="back-btn" onclick="showScreen('main')">
+                    <i class="fas fa-arrow-left"></i> VOLVER AL MENÚ
+                </button>
+            </div>
+
+            <!-- PANTALLA DE HABILIDADES -->
+            <div class="screen-card" id="skills-screen" style="display: none;">
+                <h2><i class="fas fa-star"></i> HABILIDADES ESPECIALES</h2>
+                
+                <div class="skills-container">
+                    <div class="skill-card" onclick="useSkill('Drive Shot')">
+                        <h4><i class="fas fa-bolt"></i> DRIVE SHOT</h4>
+                        <p>Tsubasa Ozora</p>
+                        <p class="skill-desc">Disparo con efecto curva imposible de parar</p>
+                    </div>
+                    
+                    <div class="skill-card" onclick="useSkill('Tiger Shot')">
+                        <h4><i class="fas fa-paw"></i> TIGER SHOT</h4>
+                        <p>Kojiro Hyuga</p>
+                        <p class="skill-desc">Disparo demoledor con fuerza de tigre</p>
+                    </div>
+                    
+                    <div class="skill-card" onclick="useSkill('God Hand')">
+                        <h4><i class="fas fa-hand-paper"></i> GOD HAND</h4>
+                        <p>Genzo Wakabayashi</p>
+                        <p class="skill-desc">Atajada milagrosa que detiene cualquier disparo</p>
+                    </div>
+                    
+                    <div class="skill-card" onclick="useSkill('Falcon Shot')">
+                        <h4><i class="fas fa-dove"></i> FALCON SHOT</h4>
+                        <p>Hikaru Matsuyama</p>
+                        <p class="skill-desc">Disparo en picado como un halcón</p>
+                    </div>
+                </div>
+                
+                <div class="skill-info">
+                    <p><i class="fas fa-info-circle"></i> Toca una habilidad para verla en acción</p>
+                </div>
+                
+                <button class="back-btn" onclick="showScreen('main')">
+                    <i class="fas fa-arrow-left"></i> VOLVER AL MENÚ
+                </button>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>Captain Tsubasa 5vs5 - Prototipo Web v1.0</p>
+            <p>Desarrollado desde Android con Acode Editor</p>
+            <div class="footer-links">
+                <button onclick="showScreen('about')"><i class="fas fa-info-circle"></i> Acerca de</button>
+                <button onclick="showScreen('github')"><i class="fab fa-github"></i> GitHub</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL PARA HABILIDADES -->
+    <div class="modal" id="skill-modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <div class="modal-animation" id="modal-animation">
+                <!-- Animación de habilidad -->
+            </div>
+            <button class="modal-btn" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
+EOF￼Enter

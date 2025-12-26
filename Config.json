@@ -1,0 +1,31 @@
+herecat > config.json << 'EOF'
+{
+    "juego": {
+        "nombre": "Captain Tsubasa 5vs5",
+        "version": "0.1.0",
+        "desarrollador": "Desarrollado con Acode desde Android"
+    },
+    "equipos": {
+        "disponibles": ["Nankatsu SC", "Toho Academy"],
+        "jugadores_por_equipo": 5,
+        "formaciones": ["2-2", "1-3", "3-1"]
+    },
+    "partido": {
+        "duracion_minutos": 10,
+        "energia_inicial": 100,
+        "probabilidad_gol": 0.15,
+        "costo_pase": 10,
+        "costo_disparo": 25
+    },
+    "habilidades": {
+        "activadas": true,
+        "costo_minimo": 30,
+        "regeneracion_energia": 1
+    },
+    "controles": {
+        "plataforma": "Android",
+        "tipo": "Pantalla táctil",
+        "sensibilidad": "media"
+    }
+}
+EOF
